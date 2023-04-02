@@ -68,6 +68,15 @@ export let theme = createTheme({
         },
       ],
     },
+    MuiChip: {
+      variants: [
+        {
+          //khi thẻ chip có props color là secondary -> style backgroundColor: '#142850'
+          props: { color: 'secondary' },
+          style: { backgroundColor: '#142850', color: 'white', fontWeight: 'bold' },
+        },
+      ],
+    },
   },
 });
 
