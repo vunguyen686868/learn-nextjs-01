@@ -2,6 +2,7 @@ import axiosClient from '@/api-client/axios-client'
 import { EmptyLayout } from '@/components/layout'
 import { AppPropsWithLayout } from '@/models'
 import '@/styles/globals.css'
+import '@/styles/prism.css'
 import { SWRConfig } from 'swr'
 
 import { ThemeProvider } from '@mui/material/styles';
