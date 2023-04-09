@@ -31,6 +31,14 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<any>) 
       //kết thúc res
       proxyRes.on('end', function () {
         try {
+          const isSuccess =
+            proxyRes.statusCode && proxyRes.statusCode >= 200 && proxyRes.statusCode < 300;
+
+          if (!isSuccess) {
+            (res as NextApiResponse).status(proxyRes.statusCode || 500).json(body);
+            resolve(true);
+          }
+
           //convert string to json data
           const { accessToken, expiredAt } = JSON.parse(body);
           console.log({ accessToken, expiredAt });
